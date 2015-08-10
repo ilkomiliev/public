@@ -1,0 +1,73 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.abrittus-kg.maven</groupId>
+  <artifactId>parent-pom</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  
+  <properties>
+		<!--  
+				enforce UTF-8 on the sources
+		-->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<!--  
+				set java sources version
+		-->
+		<java.source.version>1.8</java.source.version>
+		
+		<!--  
+				set java bin version
+		-->
+		<java.target.version>1.8</java.target.version>
+		
+		<maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
+		<maven-resources-plugin.version>2.7</maven-resources-plugin.version>
+		<junit.version>4.12</junit.version>
+	</properties>
+	
+	<build>
+		<pluginManagement>
+			<plugins>
+				<!-- 
+						set the java source and target versions
+				 -->
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+					<inherited>true</inherited>
+					<configuration>
+						<source>${java.source.version}</source>
+						<target>${java.target.version}</target>
+					</configuration>
+				</plugin>
+				
+				<!-- 
+						enforce UTF-8 on the resources
+				 -->
+				<plugin>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>${maven-resources-plugin.version}</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				
+			</plugins>
+		</pluginManagement>
+	</build>
+	
+	<dependencyManagement>
+		<dependencies>
+		
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			
+		</dependencies>
+	</dependencyManagement>
+  
+</project>
